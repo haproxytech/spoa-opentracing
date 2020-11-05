@@ -1,0 +1,61 @@
+# Accepts configuration in JSON format, with the following keys.  Extra keys will be ignored.
+#
+{
+# service: Required.  A string, the name of the service.
+#
+    "service":    "spoa-ot",
+
+# agent_host: A string, defaults to localhost.  Can also be set by the
+#   environment variable DD_AGENT_HOST.
+#
+    "agent_host": "localhost",
+
+# agent_port: A number, defaults to 8126.  Can also be set by the environment
+#   variable DD_TRACE_AGENT_PORT.
+#
+    "agent_port": 8126
+
+# type: A string, defaults to web.
+#
+#   "type": "web"
+
+# environment: A string, defaults to "".  The environment this trace belongs to.
+#   eg. "" (env:none), "staging", "prod".  Can also be set by the environment
+#   variable DD_ENV.
+#
+#   "environment": ""
+
+# sample_rate: A double, defaults to 1.0.
+#
+#   "sample_rate": 1.0
+
+# dd.priority.sampling: A boolean, true by default.  If true disables
+#   client-side sampling (thus ignoring sample_rate) and enables distributed
+#   priority sampling, where traces are sampled based on a combination of
+#   user-assigned priorities and configuration from the agent.
+#
+#   "dd.priority.sampling": true
+
+# operation_name_override: A string, if not empty it overrides the operation
+#   name (and the overridden operation name is recorded in the tag "operation").
+#
+#   "operation_name_override": ""
+
+# propagation_style_extract: A list of strings, each string is one of "Datadog",
+#   "B3".  Defaults to ["Datadog"].  The type of headers to use to propagate
+#   distributed traces.  Can also be set by the environment variable
+#   DD_PROPAGATION_STYLE_EXTRACT.
+#
+#   "propagation_style_extract": "Datadog"
+
+# propagation_style_inject: A list of strings, each string is one of "Datadog",
+#   "B3".  Defaults to ["Datadog"].  The type of headers to use to receive
+#   distributed traces.  Can also be set by the environment variable
+#   DD_PROPAGATION_STYLE_INJECT.
+#
+#   "propagation_style_inject": "Datadog"
+
+#   "dd.trace.report-hostname":
+#   "dd.trace.analytics-enabled":
+#   "dd.trace.analytics-sample-rate":
+}
