@@ -364,7 +364,7 @@ static void worker_stop(struct ev_loop *loop, const char *msg)
 	W_DBG(WORKER, NULL, "  Stopping the server, %s", msg);
 
 	if (*(prg.stop_msg) == '\0')
-		(void)strncpy(prg.stop_msg, msg, sizeof(prg.stop_msg));
+		STRLCPY(prg.stop_msg, msg, sizeof(prg.stop_msg));
 
 	ev_once(loop, -1, 0, 0, worker_stop_ev, loop);
 

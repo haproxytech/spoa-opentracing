@@ -82,6 +82,8 @@
 #define STR_BOOL(a)                ((a) ? "true" : "false")
 #define STR_ELLIPSIS(a,n)          do { if (_nNULL(a)) { if ((n) > 0) (a)[(n) - 1] = '\0'; if ((n) > 3) (a)[(n) - 2] = (a)[(n) - 3] = (a)[(n) - 4] = '.'; } } while (0)
 
+#define STRLCPY(d,s,n)             do { (void)strncpy((d), (s), (n) - 1); if ((n) > 0) (d)[(n) - 1] = '\0'; } while (0)
+
 #define ALIGN_VALUE(v,b)           (((v) == 0) ? 0 : (((((v) - 1) >> (b)) + 1) << (b)))
 #define CLAMP_VALUE(v,a,b)         (((v) < (a)) ? (a) : (((v) > (b)) ? (b) : (v)))
 

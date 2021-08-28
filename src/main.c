@@ -385,7 +385,7 @@ int main(int argc, char **argv, char **envp __maybe_unused)
 			flag_error |= _OK(getopt_set_time(optarg, &(cfg.processing_delay_us), 0, TIMEINT_S(1))) ? 0 : 1;
 #ifdef HAVE_LIBOPENTRACING
 		else if (c == 'o')
-			(void)strncpy(prg.stop_msg, optarg, sizeof(prg.stop_msg));
+			STRLCPY(prg.stop_msg, optarg, sizeof(prg.stop_msg));
 		else if (c == 'C')
 			cfg.ot_config = optarg;
 		else if (c == 'T')
